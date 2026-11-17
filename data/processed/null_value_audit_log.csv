@@ -1,0 +1,2 @@
+﻿"audit_id","record_id","vehicle_id","category_name","attribute_name","missing_category","imputation_applied","analyst_impact_note"
+"AUDIT-0001","RAW-SGL-FENDER-01","VEH-BYD-SGL","Fenders/body panels","price_usd","STRUCTURAL_CATALOG_GAP","False","Supplier price unlisted online; penalized in scoring engine under sourcing practicality."
