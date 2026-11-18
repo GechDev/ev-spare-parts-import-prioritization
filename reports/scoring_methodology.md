@@ -30,7 +30,7 @@ The approved **Primary Baseline Model** utilizes the following factor weights:
 | **F1** | **Demand Evidence** | **0.25 (25%)** | Empirical maintenance intervals (wear velocity) + NHTSA safety defect signal bonus. |
 | **F2** | **International Procurement Delay** | **0.25 (25%)** | Local aftermarket stockout severity and overseas supplier lead times. |
 | **F3** | **Vehicle Compatibility** | **0.20 (20%)** | Cross-model and modular platform interchangeability (e.g., VW MEB, Toyota e-TNGA). |
-| **F4** | **Sourcing Practicality** | **0.20 (20%)** | Unit acquisition cost affordability (60%) and freight density / compactness (40%). |
+| **F4** | **Sourcing Practicality** | **0.20 (20%)** | Unit acquisition cost affordability (55%) and freight density / compactness (45%). |
 | **F5** | **Evidence Confidence** | **0.10 (10%)** | Dual-source catalog verification count + transparent price & OEM fitment presence. |
 
 ---
@@ -64,8 +64,8 @@ The approved **Primary Baseline Model** utilizes the following factor weights:
 * **Definition:** Evaluates unit procurement affordability (preserving pilot cash flow) and freight compactness (minimizing air/sea container costs).
 * **Economic Rationale:** Bulky, heavy body parts (bumpers, fenders) incur disproportionate freight costs, whereas compact consumables maximize container utilization.
 * **Mathematical Function:**
-  $$s_{i4} = 0.6 \times (100.0 - \text{BulkFactor}_i) + 0.4 \times \text{AffordabilityScore}(\text{PriceUSD}_i)$$
-  If price is unlisted (missing data), a documented penalty is applied to enforce zero fabrication.
+  $$s_{i4} = 0.55 \times \text{AffordabilityScore}(\text{PriceUSD}_i) + 0.45 \times \text{PackagingScore}(\text{BulkPenalty}_i)$$
+  Where $\text{AffordabilityScore}$ is an inverse price scale (lower unit cost → higher score) and $\text{PackagingScore} = \max(0,\ 5.0 - \text{BulkPenalty}_i)$ normalized to [0, 5]. This 55/45 split reflects the canonical implementation in `src/scoring.py` and matches all F4 values in the final `full_ranking.csv` (e.g., cabin filters: 4.91, wiper blades: 4.64). If price is unlisted (missing data), a documented penalty is applied to enforce zero fabrication.
 
 ### Criterion 5: Evidence Confidence ($s_{i5}$, Weight $w_5 = 0.10$)
 * **Definition:** Evaluates empirical verification depth across independent supplier catalogs and databases.

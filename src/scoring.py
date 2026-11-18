@@ -1,6 +1,8 @@
 """
+[CANONICAL / AUTHORITATIVE SCORING PIPELINE]
 Multi-Criteria Decision Analysis (MCDA) Scoring Module for EV Spare Parts.
-Audited Quality-Control Implementation (Stage 4 Revision).
+Stage 5C / Stage 6 Audited Implementation.
+Authoritative source for full_ranking.csv, final_top_five.csv, and factor_scores.csv.
 
 Evaluated Dimensions (0.0 - 5.0 scale):
 1. Demand Evidence (F1: 1.0 - 5.0) - Automotive maintenance wear lifecycle + external defect signals.

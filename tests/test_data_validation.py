@@ -23,12 +23,12 @@ def test_processed_master_dataset_template_headers():
     assert path.exists()
     df = pd.read_csv(path)
     expected_cols = [
-        "part_id",
+        "record_id",   # Note: column is record_id, not part_id — corrected to match actual schema
         "vehicle_id",
         "category_id",
         "clean_oem_part_number",
-        "price_usd_standardized",
-        "source_verification_count",
+        "price_usd",
+        "evidence_confidence",
     ]
     for col in expected_cols:
         assert col in df.columns

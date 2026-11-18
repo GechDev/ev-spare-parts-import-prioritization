@@ -5,7 +5,7 @@
 **Author / Analyst:** GechDev  
 **Repository:** `ev-spare-parts-import-prioritization`  
 **Associated Source Code:** `src/scoring.py`  
-**Test Suite:** `tests/test_scoring.py` & `tests/test_scoring.ps1` (47 Automated Tests Passing)  
+**Test Suite:** `tests/test_scoring.ps1` (72 Automated Assertions Passing) & Python `pytest tests/` (24 Unit Tests)  
 **Status:** Audited Quality-Control Revision 3 Submitted for Final Analyst Review  
 
 ---
@@ -282,6 +282,7 @@ To guarantee academic defensibility and prevent over-claiming, the table below d
 All reconciliation requirements have been programmatically verified:
 * **Python Module:** [src/scoring.py](file:///c:/Users/Administrator/Desktop/icog/ev-spare-parts-import-prioritization/src/scoring.py)
 * **Python Test Suite:** [tests/test_scoring.py](file:///c:/Users/Administrator/Desktop/icog/ev-spare-parts-import-prioritization/tests/test_scoring.py)
-* **PowerShell Test Suite:** [tests/test_scoring.ps1](file:///c:/Users/Administrator/Desktop/icog/ev-spare-parts-import-prioritization/tests/test_scoring.ps1) (47 passing assertions)
+* **PowerShell Test Suite:** [`tests/test_scoring.ps1`](file:///c:/Users/Administrator/Desktop/icog/ev-spare-parts-import-prioritization/tests/test_scoring.ps1) (72 passing assertions)
+* **Python Test Suite:** `tests/` (24 pytest unit tests across `test_scoring.py`, `test_data_validation.py`, `test_part_normalizer.py`, and `test_scoring_engine.py`)
 
 **In accordance with your instructions, this audited methodology is submitted for your formal review and approval.**

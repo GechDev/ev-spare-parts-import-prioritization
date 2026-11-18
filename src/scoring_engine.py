@@ -1,11 +1,12 @@
 """
+[PROTOTYPE / REFERENCE IMPLEMENTATION]
 Multi-Criteria Decision Analysis (MCDA) Scoring Engine.
-Implements bounded, explainable scoring algorithms for the 5 assignment dimensions:
-1. Demand / Wear Velocity Signal (30%)
-2. Market Scarcity & Stockout Risk (25%)
-3. Vehicle Compatibility & Platform Sharing (20%)
-4. Sourcing Practicality & Capital Efficiency (15%)
-5. Evidence Confidence & Verification Count (10%)
+
+NOTE: This is the prototype MCDA scoring module with 0-100 min-max scaling.
+      The CANONICAL and AUTHORITATIVE scoring pipeline that produced all final CSVs
+      (results/rankings/full_ranking.csv, final_top_five.csv, factor_scores.csv)
+      is `src/scoring.py` (which implements the Stage 5C audited 5-factor model).
+      Retained for reference and legacy test compatibility.
 """
 
 from typing import Dict, Any, Optional

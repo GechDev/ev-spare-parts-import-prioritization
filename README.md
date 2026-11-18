@@ -101,14 +101,17 @@ ev-spare-parts-import-prioritization/
 │   ├── __init__.py
 │   ├── config.py                                     # System configurations, currencies, weights
 │   ├── data_cleaning.py                              # String normalization, currency conversions
-│   ├── scoring_engine.py                             # Multi-criteria scoring algorithms & normalizers
-│   └── sensitivity_analysis.py                       # Weight perturbation & rank stability testing
+│   ├── scoring.py                                    # Authoritative MCDA scoring pipeline (Stage 5C/6)
+│   ├── scoring_engine.py                             # Prototype MCDA scoring engine
+│   ├── sensitivity_analysis.py                       # Authoritative 4-scenario sensitivity analysis
+│   └── sensitivity.py                                # Prototype sensitivity analysis module
 │
 └── tests/                                            # Automated test suite
     ├── test_scoring.ps1                              # Comprehensive automated test suite (72 assertions)
-    ├── test_scoring.py                               # Python test suite
-    ├── test_data_validation.py                       # Schema validation and missingness checks
-    └── test_part_normalizer.py                       # String cleaning & normalization tests
+    ├── test_scoring.py                               # Python scoring integration test suite (11 tests)
+    ├── test_scoring_engine.py                        # Python MCDA engine unit tests (5 tests)
+    ├── test_data_validation.py                       # Schema validation & missingness checks (3 tests)
+    └── test_part_normalizer.py                       # String cleaning & normalization tests (5 tests)
 ```
 
 ---
@@ -131,8 +134,11 @@ pip install -r requirements.txt
 
 ### Running the Test Suite
 ```powershell
-# Run the comprehensive 72-assertion verification suite
+# 1. Run the comprehensive 72-assertion PowerShell verification harness
 powershell.exe -ExecutionPolicy Bypass -File tests/test_scoring.ps1
+
+# 2. Run the 24-test Python pytest suite (when Python environment is active)
+pytest tests/ -v
 ```
 
 ---

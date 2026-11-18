@@ -1,11 +1,15 @@
 """
 Unit tests for the Multi-Criteria Decision Analysis (MCDA) Scoring Engine.
 Verifies mathematical bounds, weight integrity, and ranking calculations.
+
+NOTE: This module tests src.scoring_engine (the alternative MCDA engine prototype).
+      The canonical scoring pipeline that produced the final CSV rankings is src.scoring.
+      src.scoring_engine is retained for reference; src.scoring is authoritative.
 """
 
 import pytest
 import pandas as pd
-from src.config import BASELINE_SCORING_WEIGHTS, SCENARIO_WEIGHTS if "SCENARIO_WEIGHTS" in locals() else {}
+from src.config import BASELINE_SCORING_WEIGHTS
 from src.scoring_engine import (
     min_max_scale,
     compute_demand_wear_subscore,

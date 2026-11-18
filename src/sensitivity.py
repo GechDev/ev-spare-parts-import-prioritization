@@ -1,7 +1,12 @@
 """
+[PROTOTYPE / REFERENCE IMPLEMENTATION]
 Sensitivity and Scenario Analysis Module.
-Tests whether changing scoring weights alters the top-5 part rankings.
-Fulfills the mandatory sensitivity analysis requirement from Slide 9.
+
+NOTE: This is the prototype sensitivity analysis module paired with `src/scoring_engine.py`.
+      The CANONICAL and AUTHORITATIVE sensitivity pipeline that generated
+      `results/rankings/sensitivity_analysis.csv` and powers `04_sensitivity_analysis.ipynb`
+      is `src/sensitivity_analysis.py` (which implements the Stage 5C 4-scenario framework).
+      Retained for reference and legacy test compatibility.
 """
 
 from typing import Dict, List

@@ -1,7 +1,8 @@
 """
+[CANONICAL / AUTHORITATIVE SENSITIVITY PIPELINE]
 Multi-Criteria Decision Analysis (MCDA) Sensitivity Analysis Module.
-Evaluates the robustness of the EV spare-parts prioritization scoring model
-across four strategic weighting scenarios using the final Stage 5C corrected dataset.
+Stage 5C / Stage 6 Audited Implementation.
+Authoritative source for results/rankings/sensitivity_analysis.csv and sensitivity_comparison.png.
 
 Scenarios Evaluated:
 1. Baseline (Approved Primary): 25/25/20/20/10

@@ -262,7 +262,7 @@ The following table presents the five highest-scoring baseline candidates, along
 - **Evidence Character:** Direct catalog reference under wiper schematic `74093`.
 
 #### C. Demand Evidence ($F_1 = 4.50$ | $S_1 = 90.0\%$)
-- **Engineering Replacement Interval:** OEM annual replacement schedule ($E_{\text{wear}} = 4.20$). Attributed signals: $0$.
+- **Engineering Replacement Interval:** OEM annual replacement schedule ($E_{\text{wear}} = 4.50$). Attributed signals: $0$.
 - **Regulatory Defect Signals:** Zero NHTSA wiper defect complaints ($D_{\text{signal}} = 0$).
 - **Local Operating Hypotheses:** Intense ultraviolet radiation during the dry season (Bega) hardens wiper rubber, followed by severe monsoonal rainfall during the rainy season (Kiremt, June–September), *hypothetically* triggering seasonal replacement surges.
 
@@ -312,7 +312,7 @@ The following table presents the five highest-scoring baseline candidates, along
 - **Evidence Character:** Direct catalog listing from Middle Eastern VAG specialist.
 
 #### C. Demand Evidence ($F_1 = 4.50$ | $S_1 = 90.0\%$)
-- **Engineering Replacement Interval:** OEM annual replacement schedule ($E_{\text{wear}} = 4.20$).
+- **Engineering Replacement Interval:** OEM annual replacement schedule ($E_{\text{wear}} = 4.50$).
 - **Regulatory Defect Signals:** Zero confirmed NHTSA wiper defect complaints ($D_{\text{signal}} = 0$).
 - **Local Operating Hypotheses:** UV degradation during the dry season and monsoonal rains (Kiremt) *hypothetically* drive strong seasonal demand.
 
@@ -454,8 +454,9 @@ This prioritization was executed under strict computational controls:
 - **Zero Data Fabrication:** The unpriced BYD Seagull fender (`CLN-SGL-FENDER-01`) was strictly preserved as `NULL` and penalized under $F_4$ ($1.00$) and $F_5$ ($3.00$). Zero speculative prices were invented.
 - **Evidence Boundaries Preserved:** Missing NHTSA data for BYD was recorded as unavailable evidence (`EVIDENCE_UNAVAILABLE_GEOGRAPHIC_BOUNDARY`), not zero defects.
 - **Single-Source Realism:** All 29 priced records were audited as single-source catalog observations, correctly scored at $F_5 = 4.00$ ($\text{CCI} = 80.0\%$, $\text{DCI} = 56.7\%$).
-- **Automated Verification:** The complete test suite ([`tests/test_scoring.ps1`](file:///c:/Users/Administrator/Desktop/icog/ev-spare-parts-import-prioritization/tests/test_scoring.ps1)) confirms:
-  - 62 of 62 automated test assertions passing.
+- **Automated Verification:** The complete test suite confirms:
+  - **72 PowerShell assertions** ([`tests/test_scoring.ps1`](file:///c:/Users/Administrator/Desktop/icog/ev-spare-parts-import-prioritization/tests/test_scoring.ps1)): 72/72 passing — covers score bounds, weight sums, rank order, CSV schema, and cross-scenario stability.
+  - **Python pytest suite** (`tests/`): covers MCDA engine unit tests, schema validation, and string normalization.
   - 100% mathematical reconciliation across all 30 candidate records and 10 categories.
   - Perfect CSV-to-Markdown data reconciliation.
 
@@ -467,7 +468,7 @@ For an importer entering the Addis Ababa market with **USD 5,000–10,000**, the
 
 1. **Phase 1 Pilot Purchase (Baseline Top 5):**
    - Focus the initial USD 5,000 tranche on **Cabin-Air Filters** (BYD Seagull, Toyota bZ4X, VW ID.4) and **Front Wiper Blades** (Toyota bZ4X, VW ID.4).
-   - **Rationale:** Low unit capital commitment (USD 8.50 to USD 25.84 per unit) allows purchasing healthy unit quantities (e.g., 30–50 units per SKU) while keeping total capital outlay around USD 3,000–4,500. This leaves ample cash reserves for airfreight, import VAT, customs clearing, and unexpected port delays.
+   - **Rationale:** Low unit capital commitment (USD 8.50 to USD 25.84 per unit, totaling USD 103.96 for a 5-part basket) allows purchasing healthy unit quantities (e.g., 30–50 units per SKU) while keeping total FOB merchandise outlay around USD 3,100–5,200. This leaves ample cash reserves within the USD 5,000–10,000 pilot budget for air/sea freight, import VAT, customs clearing, and unexpected port delays.
    - Fast turnover validates supplier logistics, clearing agent speed, and retail distribution channels with minimal capital at risk.
 2. **Phase 2 Expansion (The Brake Pad Pivot):**
    - As sales revenue cycles back into working capital and local fleet size expands, allocate the next tranche (USD 5,000–10,000) to the **Runner-Up Brake Pad Cluster** (`CLN-VW-BRKPAD-01`, `CLN-TOY-BRKPAD-01`, `CLN-SGL-BRKPAD-01`).

@@ -61,14 +61,14 @@
   > "Executing our scoring model yields our fifth decision: the five highest-priority replacement parts for pilot importation.
   >
   > Under the approved baseline model, the top five individual recommendations are:
-  > 1. **BYD Seagull Cabin-Air Filter (Score 84.00, Rank 1 tied)**
-  > 2. **Toyota bZ4X Cabin-Air Filter (Score 84.00, Rank 1 tied)**
-  > 3. **Volkswagen ID.4 Cabin-Air Filter (Score 84.00, Rank 1 tied)**
-  > 4. **BYD Seagull Front Wiper Blades (Score 78.00, Rank 4 tied)**
-  > 5. **Volkswagen ID.4 Front Wiper Blades (Score 78.00, Rank 4 tied)**
-  > *(Tied with Toyota bZ4X Wiper Blades at 78.00; Front Brake Pads rank 7th in baseline at 76.00).*
+  > 1. **BYD Seagull Cabin-Air Filter (Score 81.14, Rank T-1)**
+  > 2. **Toyota bZ4X Cabin-Air Filter (Score 81.14, Rank T-1)**
+  > 3. **Volkswagen ID.4 Cabin-Air Filter (Score 81.14, Rank T-1)**
+  > 4. **Toyota bZ4X Front Wiper Blade Set (Score 77.56, Rank T-4)**
+  > 5. **Volkswagen ID.4 Front Aero Wiper Blade Set (Score 77.56, Rank T-4)**
+  > *(Front Brake Pads rank T-6 at 77.40, trailing wipers by only 0.16 points; BYD Seagull wipers rank 9th at 73.56 due to model-specific fitment).*
   >
-  > Crucially, we satisfied the assignment’s sensitivity testing mandate across four strategic scenarios: Baseline, Demand-Focused, Evidence-Confidence-Focused, and Sourcing-Practicality-Focused. Across all scenarios, cabin filters and wiper blades demonstrate perfect rank resilience. In the Demand-Focused scenario, Front Brake Pads surge to 80.00 (Rank 2), confirming a robust 'Core 8' inventory cluster. Our recommendations are mathematically robust and not an artifact of arbitrary weight tuning."
+  > Crucially, we satisfied the assignment’s sensitivity testing mandate across four strategic scenarios: Baseline, Demand-Focused, Evidence-Confidence-Focused, and Sourcing-Practicality-Focused. Across all scenarios, cabin filters demonstrate perfect rank resilience (Rank T-1 in all four). In the Demand-Focused scenario, Front Brake Pads surge to 81.08 (Rank T-4), displacing wiper blades and confirming a robust 'Core 8' inventory cluster. Our recommendations are mathematically robust and not an artifact of arbitrary weight tuning."
 
 ---
 
@@ -108,7 +108,7 @@
 * **Q: Why didn't you pick the Changan Benben E-Star?**  
   * *Defense:* "The BYD Seagull demonstrated superior parts catalog traceability in English/international public databases (via Landin and CQSW), whereas Changan catalog data is fragmented, increasing supply chain procurement risk."
 * **Q: Why are Cabin-Air Filters ranked #1 above Brake Pads in the Baseline model?**  
-  * *Defense:* "Under the Baseline weights (25/25/20/20/10), Cabin Filters achieve a perfect 100 on Sourcing Practicality (low cost, ultra-compact shipping volume) and 100 on Procurement Delay due to overseas transit reliance, yielding 84.00. Brake pads score 76.00 due to higher unit acquisition cost and heavier freight weight. However, under the Demand-Focused scenario, Brake Pads surge to 80.00 (Rank 2), which is why we highlight both in our Core 8 cluster."
+  * *Defense:* "Under the Baseline weights (25/25/20/20/10), Cabin Filters achieve 81.14 (Rank T-1) because they combine high wear frequency (F1: 5.0) with low unit cost ($8.50–$25.84) and ultra-compact packaging (F4: 4.91). Front Brake Pads score 77.40 (Rank T-6), trailing wipers (77.56, Rank T-4) by a mere 0.16 points due to higher unit acquisition cost ($42.00–$78.50) and heavier freight bulk. However, under the Demand-Focused scenario (40% demand weight), Brake Pads surge to 81.08 (Rank T-4), displacing wipers, which is why we highlight both in our Core 8 cluster."
 * **Q: Why didn't you use FAPI's cross-reference data for Ethiopian demand?**  
   * *Defense:* "FAPI sample data is an evaluation schema and not market demand. FAPI data contains European/US combustion car parts. Using it for Ethiopian EV demand would be data fabrication. We reused FAPI's data schema and string normalization algorithms, not its market conclusions."
 * **Q: What if the client wants to import headlights instead of cabin filters?**  
