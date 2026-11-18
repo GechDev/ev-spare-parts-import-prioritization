@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7-Minute EV Spare-Parts Import Prioritization Presentation</title>
+<style>
+  :root {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --primary: #38bdf8;
+    --accent: #22c55e;
+    --warning: #f59e0b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border: #334155;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  body { background-color: var(--bg-color); color: var(--text-main); display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+  .header { display: flex; justify-content: space-between; align-items: center; padding: 12px 24px; background: #0b1120; border-bottom: 1px solid var(--border); }
+  .header h1 { font-size: 1rem; color: var(--primary); font-weight: 600; }
+  .timer-box { font-size: 0.9rem; color: var(--text-muted); }
+  .deck-container { flex: 1; display: flex; position: relative; overflow: hidden; }
+  .slide { position: absolute; inset: 0; display: flex; flex-direction: column; padding: 40px 60px; opacity: 0; pointer-events: none; transition: opacity 0.3s ease, transform 0.3s ease; transform: translateX(20px); }
+  .slide.active { opacity: 1; pointer-events: auto; transform: translateX(0); }
+  .slide-header { margin-bottom: 24px; }
+  .slide-tag { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--primary); font-weight: bold; margin-bottom: 8px; }
+  .slide-title { font-size: 1.8rem; font-weight: 700; color: #fff; }
+  .slide-content { flex: 1; display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: center; }
+  .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+  .card h3 { color: var(--primary); font-size: 1.1rem; margin-bottom: 14px; }
+  ul { list-style: none; }
+  li { margin-bottom: 12px; font-size: 0.95rem; line-height: 1.5; color: #cbd5e1; position: relative; padding-left: 20px; }
+  li::before { content: "•"; color: var(--primary); position: absolute; left: 0; font-size: 1.2rem; }
+  .metric-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 16px; }
+  .metric-box { background: #0f172a; border: 1px solid var(--border); border-radius: 8px; padding: 14px; text-align: center; }
+  .metric-val { font-size: 1.5rem; font-weight: 700; color: var(--accent); }
+  .metric-lbl { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; margin-top: 4px; }
+  .footer { display: flex; justify-content: space-between; align-items: center; padding: 16px 32px; background: #0b1120; border-top: 1px solid var(--border); }
+  .btn-nav { background: #1e293b; border: 1px solid var(--border); color: #fff; padding: 8px 18px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; font-weight: 600; }
+  .btn-nav:hover { background: #334155; }
+  .progress-bar { flex: 1; height: 6px; background: #1e293b; border-radius: 3px; margin: 0 24px; overflow: hidden; }
+  .progress-fill { height: 100%; width: 14.28%; background: var(--primary); transition: width 0.3s ease; }
+  .badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; background: rgba(56, 189, 248, 0.2); color: var(--primary); }
+  .badge-warn { background: rgba(245, 158, 11, 0.2); color: var(--warning); }
+  .badge-succ { background: rgba(34, 197, 94, 0.2); color: var(--accent); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  th { color: var(--primary); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>EV Spare-Parts Import Prioritization — 7-Minute Individual Presentation</h1>
+  <div class="timer-box" id="timeBox">Slide 1 of 7 (Minute 0:00 - 1:00)</div>
+</div>
+
+<div class="deck-container">
+
+  <!-- SLIDE 1 -->
+  <div class="slide active" id="slide-0">
+    <div class="slide-header">
+      <div class="slide-tag">Minute 0:00 – 1:00 | Strategic Framing</div>
+      <h2 class="slide-title">The Importer's Dilemma: Capital vs. Stockouts</h2>
+    </div>
+    <div class="slide-content">
+      <div class="card">
+        <h3>Ethiopian EV Macro Context (2024–2026)</h3>
+        <ul>
+          <li><strong>Regulatory Shock:</strong> 2024 ICE import ban catalysed massive EV adoption across Addis Ababa.</li>
+          <li><strong>Support Deficit:</strong> Official OEM dealer parts networks are virtually non-existent; aftermarket is heavily fragmented.</li>
+          <li><strong>Capital Constraint:</strong> Initial pilot capital of <strong>$5,000–$10,000</strong> severely penalizes dead inventory.</li>
+          <li><strong>The Dilemma:</strong> Bulky sheet metal traps cash; stockouts of routine maintenance stall operating fleets.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>The Evaluation Mandate</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;">Transform public online evidence into a defensible, reproducible, and explainable prioritization.</p>
+        <div class="metric-grid">
+          <div class="metric-box">
+            <div class="metric-val">$5K–$10K</div>
+            <div class="metric-lbl">Pilot Capital Tranche</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-val">30 SKUs</div>
+            <div class="metric-lbl">Assessed Candidates</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 2 -->
+  <div class="slide" id="slide-1">
+    <div class="slide-header">
+      <div class="slide-tag">Minute 1:00 – 2:00 | Vehicle Architecture</div>
+      <h2 class="slide-title">Target Vehicle Selection & Visibility Proxies</h2>
+    </div>
+    <div class="slide-content">
+      <div class="card">
+        <h3>Selected Vehicle Triad</h3>
+        <ul>
+          <li><strong>BYD Seagull (e-Platform 3.0):</strong> High-volume urban commuter and taxi fleet favorite; compact LFP powertrain.</li>
+          <li><strong>Toyota bZ4X (e-TNGA):</strong> Dominant Toyota brand trust in East Africa; premium corporate/NGO adoption.</li>
+          <li><strong>Volkswagen ID.4 (MEB):</strong> High-volume parallel import; modular platform sharing across European & Chinese editions.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Methodological Boundary: Proxy Evidence</h3>
+        <span class="badge badge-warn">CRITICAL DATA BOUNDARY</span>
+        <p style="margin-top: 12px; font-size: 0.9rem; color: #cbd5e1; line-height: 1.5;">
+          Marketplace listings (Adey Cars, Gezat Electric) reflect <strong>commercial visibility and dealer inventory intent</strong>. They are never conflated with official registration census data. Missing US recall data for Chinese-market Seagull is recorded as unavailable, not zero defects.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 3 -->
+  <div class="slide" id="slide-2">
+    <div class="slide-header">
+      <div class="slide-tag">Minute 2:00 – 3:15 | Dataset Architecture</div>
+      <h2 class="slide-title">10 Assigned Part Categories & Traceable Evidence</h2>
+    </div>
+    <div class="slide-content">
+      <div class="card">
+        <h3>Comprehensive Category Coverage</h3>
+        <ul>
+          <li><strong>Fast-Moving Consumables:</strong> Brake pads, wiper blades, cabin-air filters.</li>
+          <li><strong>Mechanical / Chassis:</strong> Brake discs, shock absorbers.</li>
+          <li><strong>Lighting & Vulnerable Trim:</strong> Headlights, tail lights, side mirrors.</li>
+          <li><strong>Body & Structural:</strong> Front bumpers, fenders/body panels.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Reference Repo Adaptation & Null Audit</h3>
+        <ul>
+          <li><strong>FAPI Normalization:</strong> Stripped punctuation and casing from Landin, CQSW, Toyota Parts, and Exist.ae catalogs.</li>
+          <li><strong>Zero-Fabrication Mandate:</strong> Missing part numbers and prices are logged in Null-Audit Log and penalized in F5, never guessed.</li>
+          <li><strong>Reproducibility:</strong> Automated deterministic test harness verifying all 30 SKUs.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 4 -->
+  <div class="slide" id="slide-3">
+    <div class="slide-header">
+      <div class="slide-tag">Minute 3:15 – 4:30 | Scoring Methodology</div>
+      <h2 class="slide-title">Explainable Multi-Criteria Decision Analysis (MCDA)</h2>
+    </div>
+    <div class="slide-content">
+      <div class="card">
+        <h3>Approved Baseline Scoring Formula</h3>
+        <p style="font-family: monospace; background: #0f172a; padding: 10px; border-radius: 6px; font-size: 0.9rem; color: var(--primary); margin-bottom: 12px;">
+          Score = 0.25·F1 + 0.25·F2 + 0.20·F3 + 0.20·F4 + 0.10·F5
+        </p>
+        <ul>
+          <li><strong>F1 (25%): Demand Evidence</strong> (Maintenance intervals & defect signals).</li>
+          <li><strong>F2 (25%): International Procurement Delay</strong> (Supplier lead times & stockout risk).</li>
+          <li><strong>F3 (20%): Vehicle Compatibility</strong> (Platform interchangeability & trim spread).</li>
+          <li><strong>F4 (20%): Sourcing Practicality</strong> (Acquisition unit cost & freight density).</li>
+          <li><strong>F5 (10%): Evidence Confidence</strong> (Multi-source catalog verification).</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Economic Logic</h3>
+        <p style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.5;">
+          Aligns with <strong>ABC-XYZ inventory classification</strong>: High-velocity, low-cost consumables (X/C) protect working capital. Bulky, high-cost body panels (Z/A) tie up foreign exchange and suffer high holding penalties.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 5 -->
+  <div class="slide" id="slide-4">
+    <div class="slide-header">
+      <div class="slide-tag">Minute 4:30 – 5:30 | Recommendations</div>
+      <h2 class="slide-title">Top 5 Candidates & Sensitivity Stability</h2>
+    </div>
+    <div class="slide-content">
+      <div class="card">
+        <h3>Approved Baseline Top 5 Recommendations</h3>
+        <table>
+          <tr><th>SKU ID</th><th>Vehicle</th><th>Part Category</th><th>Score</th><th>Rank</th></tr>
+          <tr><td>BYD-SG-CF-003</td><td>BYD Seagull</td><td>Cabin-Air Filter</td><td><strong>84.00</strong></td><td>1 (Tied)</td></tr>
+          <tr><td>TOY-BZ-CF-013</td><td>Toyota bZ4X</td><td>Cabin-Air Filter</td><td><strong>84.00</strong></td><td>1 (Tied)</td></tr>
+          <tr><td>VW-ID4-CF-023</td><td>VW ID.4</td><td>Cabin-Air Filter</td><td><strong>84.00</strong></td><td>1 (Tied)</td></tr>
+          <tr><td>BYD-SG-WP-004</td><td>BYD Seagull</td><td>Front Wiper Blades</td><td><strong>78.00</strong></td><td>4 (Tied)</td></tr>
+          <tr><td>VW-ID4-WP-024</td><td>VW ID.4</td><td>Front Wiper Blades</td><td><strong>78.00</strong></td><td>4 (Tied)</td></tr>
+        </table>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 8px;">*TOY-BZ-WP-014 also tied at 78.00; Front Brake Pads rank 7th (76.00).</p>
+      </div>
+      <div class="card">
+        <h3>Sensitivity Analysis Stress Test</h3>
+        <ul>
+          <li><strong>Four Scenarios Tested:</strong> Baseline, Demand-Focused (35/20/15/20/10), Evidence-Confidence (20/20/15/15/30), Sourcing-Practicality (20/20/15/35/10).</li>
+          <li><strong>Core 8 Cluster:</strong> Cabin filters, wipers, and brake pads demonstrate total stability across all alternative weights.</li>
+          <li><strong>Demand-Focused Surge:</strong> Brake pads jump to 80.00 (Rank 2) when demand wear weight is elevated.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 6 -->
+  <div class="slide" id="slide-5">
+    <div class="slide-header">
+      <div class="slide-tag">Minute 5:30 – 6:30 | Integrity & Governance</div>
+      <h2 class="slide-title">Evidence Limitations & Materiality Hierarchy</h2>
+    </div>
+    <div class="slide-content">
+      <div class="card">
+        <h3>Disclosed Materiality Hierarchy</h3>
+        <ul>
+          <li><strong>Rank 1 (Severe):</strong> No Ethiopian vehicle registration census data.</li>
+          <li><strong>Rank 2 (Severe):</strong> Landed cost gap (Djibouti port clearance & Ethiopian tariffs).</li>
+          <li><strong>Rank 3 (High):</strong> Single-supplier price points on certain SKUs.</li>
+          <li><strong>Rank 4 (Medium):</strong> NHTSA geographic mismatch (US focus vs Chinese domestic).</li>
+          <li><strong>Rank 5 (Medium):</strong> Year and trim fitment variances across production years.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Governance Disclaimer</h3>
+        <span class="badge badge-warn">PROVISIONAL RECOMMENDATION</span>
+        <p style="margin-top: 14px; font-size: 0.9rem; color: #cbd5e1; line-height: 1.6;">
+          The five candidates should be treated as <strong>provisional import-prioritization recommendations, not confirmed purchase orders</strong>, unless the evidence establishes exact fitment, local demand, supplier reliability, and landed costs.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 7 -->
+  <div class="slide" id="slide-6">
+    <div class="slide-header">
+      <div class="slide-tag">Minute 6:30 – 7:00 | Execution</div>
+      <h2 class="slide-title">Operational Roadmap & Pre-Purchase Verification</h2>
+    </div>
+    <div class="slide-content">
+      <div class="card">
+        <h3>Three-Phase Implementation</h3>
+        <ul>
+          <li><strong>Phase 1: Pilot Procurement:</strong> $5,000–$10,000 capital committed to Cabin Filters & Wiper Sets.</li>
+          <li><strong>Phase 2: Addis Ababa Workshop Audits:</strong> In-person mechanic interviews and VIN fitment verification during transit window.</li>
+          <li><strong>Phase 3: Commercial Scaling:</strong> Expand into Brake Pads and Rotors upon 60-day inventory turnover.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>11-Point Verification Checklist</h3>
+        <span class="badge badge-succ">0/11 COMPLETED — MANDATORY GATE</span>
+        <ul style="margin-top: 12px; font-size: 0.85rem;">
+          <li>✓ Operating fleet size survey in Addis Ababa.</li>
+          <li>✓ EV repair shop interviews on replacement frequency.</li>
+          <li>✓ VIN, model year & trim fitment matching.</li>
+          <li>✓ Dual written supplier quotes & MOQ confirmation.</li>
+          <li>✓ Landed cost model including Djibouti freight & tariffs.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <button class="btn-nav" id="prevBtn" onclick="prevSlide()">← Previous</button>
+  <div class="progress-bar"><div class="progress-fill" id="progFill"></div></div>
+  <button class="btn-nav" id="nextBtn" onclick="nextSlide()">Next →</button>
+</div>
+
+<script>
+  let currentSlide = 0;
+  const totalSlides = 7;
+  const slides = document.querySelectorAll('.slide');
+  const progFill = document.getElementById('progFill');
+  const timeBox = document.getElementById('timeBox');
+  const timeLabels = [
+    "Slide 1 of 7 (Minute 0:00 - 1:00)",
+    "Slide 2 of 7 (Minute 1:00 - 2:00)",
+    "Slide 3 of 7 (Minute 2:00 - 3:15)",
+    "Slide 4 of 7 (Minute 3:15 - 4:30)",
+    "Slide 5 of 7 (Minute 4:30 - 5:30)",
+    "Slide 6 of 7 (Minute 5:30 - 6:30)",
+    "Slide 7 of 7 (Minute 6:30 - 7:00)"
+  ];
+
+  function showSlide(index) {
+    slides.forEach((s, i) => {
+      s.classList.toggle('active', i === index);
+    });
+    progFill.style.width = ((index + 1) / totalSlides * 100) + '%';
+    timeBox.textContent = timeLabels[index];
+    currentSlide = index;
+  }
+
+  function nextSlide() {
+    if (currentSlide < totalSlides - 1) showSlide(currentSlide + 1);
+  }
+
+  function prevSlide() {
+    if (currentSlide > 0) showSlide(currentSlide - 1);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+    if (e.key === 'ArrowLeft') prevSlide();
+  });
+</script>
+
+</body>
+</html>
